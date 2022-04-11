@@ -3,6 +3,7 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   signInWithEmailAndPassword,
+  signOut,
 } from "firebase/auth";
 
 //* https://firebase.google.com/docs/auth/web/start
@@ -47,4 +48,9 @@ export const signIn = async (email, password, navigate) => {
   } catch (err) {
     alert(err.message);
   }
+};
+
+export const logOut = () => {
+  signOut(auth);
+  alert("logged out successfully");
 };

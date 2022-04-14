@@ -8,6 +8,8 @@ const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}
 
 const Main = () => {
 
+  
+
 // 5. çektiğimiz veriyi saymamızda görebilmek için usestate tanımladık
 
 // 6. useState([]) map ederken içerisine boş array tanımlıyoruz

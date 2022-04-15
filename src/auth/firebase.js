@@ -2,11 +2,13 @@ import { initializeApp } from "firebase/app";
 import {
   createUserWithEmailAndPassword,
   getAuth,
+  GoogleAuthProvider,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
   updateProfile,
-} from "firebase/auth";
+} from "firebase/auth";;
 
 //* https://firebase.google.com/docs/auth/web/start
 //* https://console.firebase.google.com/ => project settings
@@ -97,3 +99,19 @@ export const userObserver = (setCurrentUser)=>{
     }
   });
 }
+
+  //* https://console.firebase.google.com/
+//* => Authentication => sign-in-method => enable Google
+export const signUpProvider = (navigate) => {
+  const provider = new GoogleAuthProvider();
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      console.log(result);
+      navigate("/");
+    })
+    .catch((error) => {
+      // Handle Errors here.
+      console.log(error);
+      // ...
+    });
+};
